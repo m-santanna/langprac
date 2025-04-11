@@ -92,7 +92,7 @@ const Page = () => {
   }, [time, gameState])
 
   const checkCorrect = (input: string, currentKatakana: string) => {
-    if (input === currentKatakana) {
+    if (input.toLowerCase() === currentKatakana) {
       setScore(score + 1)
       setCurrentKatakana(randomKatakana(katakanaList))
     } else {
@@ -107,7 +107,7 @@ const Page = () => {
   }
 
   return (
-    <section className="relative h-[calc(100vh-64px)] md:h-screen max-w-2xl mx-auto p-4 md:p-8">
+    <section className="relative h-[calc(128vh-64px)] md:h-screen max-w-2xl mx-auto p-4 md:p-8">
       {gameState === "tutorial" && (
         <TutorialComponent router={router} initializeGame={initializeGame} />
       )}
