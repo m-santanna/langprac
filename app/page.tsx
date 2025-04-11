@@ -12,13 +12,13 @@ const page = () => {
         </p>
         <div className="flex justify-between items-center gap-4 mt-2">
           <Button size={"lg"} asChild className="rounded-full text-lg">
+            <Link href={"/practice"}>Practice</Link>
+          </Button>
+          <Button size={"lg"} asChild className="rounded-full text-lg">
             <Link href="/rush">Rush</Link>
           </Button>
           <Button size={"lg"} asChild className="rounded-full text-lg">
             <Link href={"/goal"}>Goal</Link>
-          </Button>
-          <Button size={"lg"} asChild className="rounded-full text-lg">
-            <Link href={"/practice"}>Practice</Link>
           </Button>
         </div>
       </div>

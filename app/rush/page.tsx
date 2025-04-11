@@ -7,11 +7,7 @@ import { ArrowLeft } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime"
-
-const randomKatakana = () => {
-  const randomIndex = Math.floor(Math.random() * katakanaList.length)
-  return katakanaList[randomIndex]
-}
+import { randomKatakana } from "@/lib/utils"
 
 const TutorialComponent = ({
   router,
@@ -30,10 +26,8 @@ const TutorialComponent = ({
       </Button>
       <div className="flex flex-col items-center justify-center gap-4 h-full">
         <h1 className="text-7xl text-gradient text-center">Rush Mode</h1>
-        <p className="text-xl text-center">
-          Associate as many katakana characters with their corresponding romaji
-          as possible. They will be displayed one by one, you just have to type,
-          and press enter.
+        <p className="text-2xl text-gradient text-center">
+          One timer. You. Katakanas. Tension! BOOOOOM!!!!!
         </p>
         <div className="flex justify-between items-center gap-4 mt-2">
           <Button
@@ -62,8 +56,10 @@ const GameOverComponent = ({
     <>
       <div className="flex flex-col items-center justify-center gap-4 h-full">
         <h1 className="text-7xl text-gradient text-center">Game Over</h1>
-        <p className="text-2xl text-center">Your final score is {score}.</p>
-        <div className="flex justify-between items-center gap-4">
+        <p className="text-2xl text-gradient text-center">
+          Your final score is {score}.
+        </p>
+        <div className="flex justify-between items-center gap-4 mt-2">
           <Button onClick={initializeGame} className="rounded-full text-lg">
             Restart
           </Button>
@@ -80,7 +76,9 @@ const page = () => {
   const [gameState, setGameState] = useState("tutorial")
   const [score, setScore] = useState(0)
   const [time, setTime] = useState(60)
-  const [currentKatakana, setCurrentKatakana] = useState(randomKatakana())
+  const [currentKatakana, setCurrentKatakana] = useState(
+    randomKatakana(katakanaList),
+  )
   const [inputValue, setInputValue] = useState("")
   const router = useRouter()
 
@@ -88,9 +86,7 @@ const page = () => {
     if (time <= 0) setGameState("gameover")
 
     const timer = setInterval(() => {
-      if (gameState === "game") {
-        setTime((t) => t - 1)
-      }
+      if (gameState === "game") setTime((t) => t - 1)
     }, 1000)
     return () => clearInterval(timer) // Cleanup on unmount
   }, [time, gameState])
@@ -98,7 +94,7 @@ const page = () => {
   const checkCorrect = (input: string, currentKatakana: string) => {
     if (input === currentKatakana) {
       setScore(score + 1)
-      setCurrentKatakana(randomKatakana())
+      setCurrentKatakana(randomKatakana(katakanaList))
     } else {
     }
   }
@@ -106,7 +102,7 @@ const page = () => {
   const initializeGame = () => {
     setGameState("game")
     setScore(0)
-    setCurrentKatakana(randomKatakana())
+    setCurrentKatakana(randomKatakana(katakanaList))
     setTime(60)
   }
 
@@ -130,21 +126,19 @@ const page = () => {
             <p className="text-xl text-center">
               Score: {score} | Time: {time}
             </p>
-            <div className="flex justify-between items-center gap-4">
-              <Input
-                autoFocus
-                type="text"
-                className="rounded-full"
-                value={inputValue}
-                onChange={(e) => setInputValue(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") {
-                    checkCorrect(inputValue, currentKatakana.romaji)
-                    setInputValue("")
-                  }
-                }}
-              />
-            </div>
+            <Input
+              autoFocus
+              type="text"
+              className="mt-2 rounded-full w-1/3"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  checkCorrect(inputValue, currentKatakana.romaji)
+                  setInputValue("")
+                }
+              }}
+            />
           </div>
         </>
       )}
