@@ -204,7 +204,7 @@ export default function Page() {
   }, [states.gamePhase, states.score])
 
   return (
-    <section className="relative h-screen max-w-2xl mx-auto p-4">
+    <section className="relative h-[calc(100vh-64px)] md:h-screen max-w-2xl mx-auto p-4 md:p-8">
       {states.gamePhase === "tutorial" && (
         <TutorialComponent initializeGame={initializeGame} router={router} />
       )}
