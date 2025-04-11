@@ -155,7 +155,7 @@ const GameOverComponent = ({
       <div className="flex flex-col items-center justify-center gap-4 h-full">
         <h1 className="text-gradient text-center text-7xl">Game Over</h1>
         <p className="text-2xl text-gradient text-center">
-          Your final time is {states.time}
+          Your final time is {states.time} secs.
         </p>
         <div className="flex gap-4 mt-2">
           <Button onClick={initializeGame} className="rounded-full text-lg">

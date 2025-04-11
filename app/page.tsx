@@ -8,7 +8,7 @@ const page = () => {
       <div className="flex flex-col items-center justify-center gap-4 h-full">
         <h1 className="text-7xl text-gradient">Welcome!</h1>
         <p className="text-gradient text-2xl text-center">
-          Select a game mode to practice your katakana knowledge.
+          Select a game mode to enhance your katakana knowledge.
         </p>
         <div className="flex justify-between items-center gap-4 mt-2">
           <Button size={"lg"} asChild className="rounded-full text-lg">
