@@ -72,7 +72,7 @@ const GameOverComponent = ({
   )
 }
 
-const page = () => {
+const Page = () => {
   const [gameState, setGameState] = useState("tutorial")
   const [score, setScore] = useState(0)
   const [time, setTime] = useState(60)
@@ -153,4 +153,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
