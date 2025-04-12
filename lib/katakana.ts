@@ -37,7 +37,7 @@ export const katakanaList = [
   // H-row
   { kana: "ハ", romaji: "ha" },
   { kana: "ヒ", romaji: "hi" },
-  { kana: "フ", romaji: "hu" },
+  { kana: "フ", romaji: "hu/fu" },
   { kana: "ヘ", romaji: "he" },
   { kana: "ホ", romaji: "ho" },
 
