@@ -1,28 +1,27 @@
-import { Button } from "@/components/ui/button"
-import Link from "next/link"
-import React from "react"
+"use client"
+
+import { useAtomValue } from "jotai"
+import { gameModeAtom } from "@/lib/atoms"
+import LandingPage from "@/components/landing-page"
+import PracticePage from "@/components/practice"
+import GoalPage from "@/components/goal"
+import RushPage from "@/components/rush"
+import Cheatsheet from "@/components/cheatsheet"
+import Navbar from "@/components/navbar"
 
 const page = () => {
+  const gameMode = useAtomValue(gameModeAtom)
   return (
-    <section className="h-[calc(100vh-80px)] md:h-screen w-screen p-4 md:p-8">
-      <div className="flex flex-col items-center justify-center gap-4 h-full">
-        <h1 className="text-7xl text-gradient">Welcome!</h1>
-        <p className="text-gradient text-2xl text-center">
-          Select a game mode to enhance your katakana knowledge.
-        </p>
-        <div className="flex justify-between items-center gap-2 mt-2">
-          <Button size={"lg"} asChild className="rounded-full text-lg">
-            <Link href={"/practice"}>Practice</Link>
-          </Button>
-          <Button size={"lg"} asChild className="rounded-full text-lg">
-            <Link href="/rush">Rush</Link>
-          </Button>
-          <Button size={"lg"} asChild className="rounded-full text-lg">
-            <Link href={"/goal"}>Goal</Link>
-          </Button>
-        </div>
-      </div>
-    </section>
+    <>
+      <Navbar />
+      <main>
+        {gameMode === "landing-page" && <LandingPage />}
+        {gameMode === "practice" && <PracticePage />}
+        {gameMode === "goal" && <GoalPage />}
+        {gameMode === "rush" && <RushPage />}
+        {gameMode === "cheatsheet" && <Cheatsheet />}
+      </main>
+    </>
   )
 }
 

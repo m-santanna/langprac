@@ -1,32 +1,67 @@
 import { ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime"
+import {
+  gameModeAtom,
+  gamePhaseAtom,
+  inputValueAtom,
+  katakanasAtom,
+  scoreAtom,
+  stopwatchAtom,
+  timerAtom,
+  usedTimeAtom,
+} from "@/lib/atoms"
+import { useAtom, useAtomValue, useSetAtom } from "jotai"
+import { randomKatakana } from "@/lib/utils"
+import { katakanaList } from "@/lib/katakana"
 
-const TutorialComponent = ({
-  title,
-  description,
-  router,
-  initializeGame,
-}: {
-  title: string
-  description: string
-  router: AppRouterInstance
-  initializeGame: () => void
-}) => {
+const TutorialComponent = () => {
+  const [gameMode, setGameMode] = useAtom(gameModeAtom)
+  const setGamePhase = useSetAtom(gamePhaseAtom)
+  const setKatakanas = useSetAtom(katakanasAtom)
+  const setScore = useSetAtom(scoreAtom)
+  const setInputValue = useSetAtom(inputValueAtom)
+  const setUsedTime = useSetAtom(usedTimeAtom)
+  const time = gameMode === "rush" ? useAtomValue(timerAtom) : useAtomValue(stopwatchAtom)
+
   return (
     <>
-      <Button
-        onClick={() => router.back()}
-        className="rounded-full absolute top-24"
-      >
+      <Button onClick={() => setGameMode("landing-page")} className="rounded-full absolute top-24">
         <ArrowLeft />
       </Button>
       <div className="flex flex-col items-center justify-center gap-4 h-full">
-        <h1 className="text-gradient text-center text-7xl">{title}</h1>
-        <p className="text-2xl text-gradient text-center">{description}</p>
+        {gameMode === "rush" && (
+          <>
+            <h1 className="text-gradient text-center text-7xl">Rush Mode</h1>
+            <p className="text-2xl text-gradient text-center">
+              One timer. You. Katakanas. Tension! BOOOOOM!!!!!
+            </p>
+          </>
+        )}
+        {gameMode === "practice" && (
+          <>
+            <h1 className="text-gradient text-center text-7xl">Practice Mode</h1>
+            <p className="text-2xl text-gradient text-center">
+              Take your time. Breath. Open your mind to infinity!
+            </p>
+          </>
+        )}
+        {gameMode === "goal" && (
+          <>
+            <h1 className="text-gradient text-center text-7xl">Goal Mode</h1>
+            <p className="text-2xl text-gradient text-center">
+              50 katakanas to go. The less time you take, the better! DUH
+            </p>
+          </>
+        )}
         <Button
           size={"lg"}
-          onClick={initializeGame}
+          onClick={() => {
+            setGamePhase("game")
+            setKatakanas(randomKatakana(katakanaList))
+            setScore(0)
+            setInputValue("")
+            setUsedTime(time)
+          }}
           className="rounded-full text-lg mt-2"
         >
           Start Game

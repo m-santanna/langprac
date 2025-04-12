@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { Roboto } from "next/font/google"
 import "./globals.css"
-import Navbar from "@/components/navbar"
+import { Provider } from "jotai"
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -21,8 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.variable} antialiased`}>
-        <Navbar />
-        {children}
+        <Provider>{children}</Provider>
       </body>
     </html>
   )

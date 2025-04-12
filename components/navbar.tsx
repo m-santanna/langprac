@@ -1,18 +1,31 @@
+"use client"
+
 import React from "react"
-import Link from "next/link"
+import { Button } from "./ui/button"
+import { useSetAtom } from "jotai"
+import { gameModeAtom } from "@/lib/atoms"
 
 const Navbar = () => {
+  const setGameMode = useSetAtom(gameModeAtom)
   return (
     <header className="fixed top-5 left-1/2 transform -translate-x-1/2 w-[80vw] md:w-full max-w-2xl z-10">
       <nav className="flex justify-between items-center p-4 bg-zinc-900 text-white h-16 rounded-3xl">
-        <Link href="/" className="font-bold hover:underline">
+        <Button
+          variant={"link"}
+          onClick={() => setGameMode("landing-page")}
+          className="font-bold text-lg"
+        >
           practice-katakana
-        </Link>
+        </Button>
         <ul className="flex space-x-4">
           <li>
-            <Link href="/cheatsheet" className="hover:underline">
+            <Button
+              onClick={() => setGameMode("cheatsheet")}
+              className="text-lg"
+              variant={"link"}
+            >
               Cheatsheet
-            </Link>
+            </Button>
           </li>
         </ul>
       </nav>
