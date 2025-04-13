@@ -2,14 +2,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { useAtom, useAtomValue, useSetAtom } from "jotai"
-import {
-  gameModeAtom,
-  gamePhaseAtom,
-  inputValueAtom,
-  katakanasAtom,
-  scoreAtom,
-  usedTimeAtom,
-} from "@/lib/atoms"
+import { gameModeAtom, gamePhaseAtom, katakanasAtom, scoreAtom, usedTimeAtom } from "@/lib/atoms"
 import { randomKatakana } from "@/lib/utils"
 import { katakanaList } from "@/lib/katakana"
 
@@ -18,32 +11,28 @@ const GameComponent = () => {
   const setGamePhase = useSetAtom(gamePhaseAtom)
   const [katakanas, setKatakanas] = useAtom(katakanasAtom)
   const [score, setScore] = useAtom(scoreAtom)
-  const [inputValue, setInputValue] = useAtom(inputValueAtom)
   const usedTime = useAtomValue(usedTimeAtom)
 
-  const checkCorrect = () => {
-    const processedInput = inputValue.toLowerCase().trim()
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const processedInput = e.target.value.toLowerCase().trim()
     if (processedInput === katakanas.romaji) {
       setScore((prevScore) => prevScore + 1)
       setKatakanas(randomKatakana(katakanaList))
-      setInputValue("")
+      e.target.value = ""
     } else if (processedInput === "fu" && katakanas.romaji === "hu/fu") {
       setScore((prevScore) => prevScore + 1)
       setKatakanas(randomKatakana(katakanaList))
-      setInputValue("")
+      e.target.value = ""
     } else if (processedInput === "hu" && katakanas.romaji === "hu/fu") {
       setScore((prevScore) => prevScore + 1)
       setKatakanas(randomKatakana(katakanaList))
-      setInputValue("")
+      e.target.value = ""
     }
   }
 
   return (
     <>
-      <Button
-        onClick={() => setGamePhase("tutorial")}
-        className="rounded-full absolute top-24"
-      >
+      <Button onClick={() => setGamePhase("tutorial")} className="rounded-full absolute top-24">
         <ArrowLeft />
       </Button>
       <div className="flex flex-col items-center justify-center gap-4 h-full">
@@ -56,16 +45,9 @@ const GameComponent = () => {
         <Input
           type="text"
           autoFocus
+          defaultValue=""
           className="mt-2 rounded-full w-1/3"
-          value={inputValue}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              checkCorrect()
-            }
-          }}
-          onChange={(e) => {
-            setInputValue(e.target.value)
-          }}
+          onChange={handleInputChange}
         />
         {gameMode === "practice" && (
           <Button

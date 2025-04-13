@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button"
 import {
   gameModeAtom,
   gamePhaseAtom,
-  inputValueAtom,
   katakanasAtom,
   scoreAtom,
   stopwatchAtom,
@@ -18,7 +17,6 @@ const GameOverComponent = () => {
   const setGamePhase = useSetAtom(gamePhaseAtom)
   const setKatakanas = useSetAtom(katakanasAtom)
   const [score, setScore] = useAtom(scoreAtom)
-  const setInputValue = useSetAtom(inputValueAtom)
   const [usedTime, setUsedTime] = useAtom(usedTimeAtom)
   const time = gameMode === "rush" ? useAtomValue(timerAtom) : useAtomValue(stopwatchAtom)
 
@@ -40,7 +38,6 @@ const GameOverComponent = () => {
             setGamePhase("game")
             setKatakanas(randomKatakana(katakanaList))
             setScore(0)
-            setInputValue("")
             setUsedTime(time)
           }}
           className="rounded-full text-lg"

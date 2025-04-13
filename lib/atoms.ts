@@ -4,7 +4,6 @@ export const gameModeAtom = atom("landing-page")
 export const gamePhaseAtom = atom("tutorial")
 export const scoreAtom = atom(0)
 export const usedTimeAtom = atom(1000)
-export const inputValueAtom = atom("")
 export const katakanasAtom = atom({ kana: "", romaji: "" })
 
 export const randomAtom = atom("random")
