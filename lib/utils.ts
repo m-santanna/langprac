@@ -5,9 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export const randomKatakana = (
-  katakanaList: { kana: string; romaji: string }[],
-) => {
-  const randomIndex = Math.floor(Math.random() * katakanaList.length)
-  return katakanaList[randomIndex]
+export const randomCharacter = (characterList: { character: string; romaji: string }[]) => {
+  const randomIndex = Math.floor(Math.random() * characterList.length)
+  return characterList[randomIndex]
 }

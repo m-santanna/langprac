@@ -1,35 +1,39 @@
 import { ArrowLeft } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
-  gameModeAtom,
+  pageAtom,
   gamePhaseAtom,
-  katakanasAtom,
+  charactersAtom,
   scoreAtom,
   stopwatchAtom,
   timerAtom,
   usedTimeAtom,
+  alphabetAtom,
 } from "@/lib/atoms"
 import { useAtom, useAtomValue, useSetAtom } from "jotai"
-import { randomKatakana } from "@/lib/utils"
-import { katakanaList } from "@/lib/katakana"
+import { randomCharacter } from "@/lib/utils"
+import { katakanaList, hiraganaList, russianList } from "@/lib/alphabets"
 
 const TutorialComponent = () => {
-  const [gameMode, setGameMode] = useAtom(gameModeAtom)
+  const alphabet = useAtomValue(alphabetAtom)
+  const [page, setPage] = useAtom(pageAtom)
   const setGamePhase = useSetAtom(gamePhaseAtom)
-  const setKatakanas = useSetAtom(katakanasAtom)
+  const setCharacters = useSetAtom(charactersAtom)
   const setScore = useSetAtom(scoreAtom)
   const setUsedTime = useSetAtom(usedTimeAtom)
   const timer = useAtomValue(timerAtom)
   const stopwatch = useAtomValue(stopwatchAtom)
-  const time = gameMode === "rush" ? timer : stopwatch
+  const time = page === "rush" ? timer : stopwatch
+  const charactersList =
+    alphabet === "katakana" ? katakanaList : alphabet === "hiragana" ? hiraganaList : russianList
 
   return (
     <>
-      <Button onClick={() => setGameMode("landing-page")} className="rounded-full absolute top-24">
+      <Button onClick={() => setPage("landing-page")} className="rounded-full absolute top-24">
         <ArrowLeft />
       </Button>
       <div className="flex flex-col items-center justify-center gap-4 h-full">
-        {gameMode === "rush" && (
+        {page === "rush" && (
           <>
             <h1 className="text-gradient text-center text-7xl">Rush Mode</h1>
             <p className="text-2xl text-gradient text-center">
@@ -37,7 +41,7 @@ const TutorialComponent = () => {
             </p>
           </>
         )}
-        {gameMode === "practice" && (
+        {page === "practice" && (
           <>
             <h1 className="text-gradient text-center text-7xl">Practice Mode</h1>
             <p className="text-2xl text-gradient text-center">
@@ -45,7 +49,7 @@ const TutorialComponent = () => {
             </p>
           </>
         )}
-        {gameMode === "goal" && (
+        {page === "goal" && (
           <>
             <h1 className="text-gradient text-center text-7xl">Goal Mode</h1>
             <p className="text-2xl text-gradient text-center">
@@ -57,7 +61,7 @@ const TutorialComponent = () => {
           size={"lg"}
           onClick={() => {
             setGamePhase("game")
-            setKatakanas(randomKatakana(katakanaList))
+            setCharacters(randomCharacter(charactersList))
             setScore(0)
             setUsedTime(time)
           }}

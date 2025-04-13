@@ -1,22 +1,23 @@
-import { katakanaList } from "@/lib/katakana"
+"use client"
+
+import { katakanaList, hiraganaList, russianList } from "@/lib/alphabets"
+import { alphabetAtom } from "@/lib/atoms"
+import { useAtomValue } from "jotai"
 
 export default function Cheatsheet() {
+  const alphabet = useAtomValue(alphabetAtom)
+  const alphabetList =
+    alphabet === "katakana" ? katakanaList : alphabet === "hiragana" ? hiraganaList : russianList
   return (
     <section className="p-4 md:p-8 w-[90vw] md:w-[80vw] h-full mx-auto mt-20">
-      <h1 className="text-4xl md:text-6xl text-gradient text-center">
-        Remember your Katakana
-      </h1>
+      <h1 className="text-4xl md:text-6xl text-gradient text-center">Remember your {alphabet}</h1>
       <p className="text-lg md:text-xl text-center mt-8">
-        The following sheet will help you remember each katakana and its
-        corresponding romanji.
+        The following sheet will help you remember each character and its corresponding romaji.
       </p>
       <div className="grid grid-cols-5 gap-4 mt-12">
-        {katakanaList.map((item) => (
-          <div
-            key={item.kana}
-            className="bg-slate-800 p-4 rounded-lg shadow-md text-center"
-          >
-            <h2 className="text-xl">{item.kana}</h2>
+        {alphabetList.map((item) => (
+          <div key={item.character} className="bg-slate-800 p-4 shadow-md text-center">
+            <h2 className="text-2xl">{item.character}</h2>
             <p className="text-lg">{item.romaji}</p>
           </div>
         ))}

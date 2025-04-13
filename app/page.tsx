@@ -1,7 +1,7 @@
 "use client"
 
 import { useAtomValue } from "jotai"
-import { gameModeAtom } from "@/lib/atoms"
+import { pageAtom } from "@/lib/atoms"
 import LandingPage from "@/components/landing-page"
 import PracticePage from "@/components/practice"
 import GoalPage from "@/components/goal"
@@ -10,16 +10,16 @@ import Cheatsheet from "@/components/cheatsheet"
 import Navbar from "@/components/navbar"
 
 export default function HomePage() {
-  const gameMode = useAtomValue(gameModeAtom)
+  const page = useAtomValue(pageAtom)
   return (
     <>
       <Navbar />
       <main>
-        {gameMode === "landing-page" && <LandingPage />}
-        {gameMode === "practice" && <PracticePage />}
-        {gameMode === "goal" && <GoalPage />}
-        {gameMode === "rush" && <RushPage />}
-        {gameMode === "cheatsheet" && <Cheatsheet />}
+        {page === "landing-page" && <LandingPage />}
+        {page === "practice" && <PracticePage />}
+        {page === "goal" && <GoalPage />}
+        {page === "rush" && <RushPage />}
+        {page === "cheatsheet" && <Cheatsheet />}
       </main>
     </>
   )

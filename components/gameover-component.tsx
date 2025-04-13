@@ -1,36 +1,40 @@
 import { Button } from "@/components/ui/button"
 import {
-  gameModeAtom,
+  pageAtom,
   gamePhaseAtom,
-  katakanasAtom,
+  charactersAtom,
   scoreAtom,
   stopwatchAtom,
   timerAtom,
   usedTimeAtom,
+  alphabetAtom,
 } from "@/lib/atoms"
 import { useAtom, useAtomValue, useSetAtom } from "jotai"
-import { randomKatakana } from "@/lib/utils"
-import { katakanaList } from "@/lib/katakana"
+import { randomCharacter } from "@/lib/utils"
+import { katakanaList, hiraganaList, russianList } from "@/lib/alphabets"
 
 const GameOverComponent = () => {
-  const [gameMode, setGameMode] = useAtom(gameModeAtom)
+  const alphabet = useAtomValue(alphabetAtom)
+  const [page, setPage] = useAtom(pageAtom)
   const setGamePhase = useSetAtom(gamePhaseAtom)
-  const setKatakanas = useSetAtom(katakanasAtom)
+  const setCharacters = useSetAtom(charactersAtom)
   const [score, setScore] = useAtom(scoreAtom)
   const [usedTime, setUsedTime] = useAtom(usedTimeAtom)
   const timer = useAtomValue(timerAtom)
   const stopwatch = useAtomValue(stopwatchAtom)
-  const time = gameMode === "rush" ? timer : stopwatch
+  const time = page === "rush" ? timer : stopwatch
+  const charactersList =
+    alphabet === "katakana" ? katakanaList : alphabet === "hiragana" ? hiraganaList : russianList
 
   return (
     <div className="flex flex-col items-center justify-center gap-4 h-full">
       <h1 className="text-gradient text-center text-7xl">Game Over</h1>
       <p className="text-2xl text-gradient text-center">
-        {gameMode === "goal" && <span>Your final time is {usedTime} secs.</span>}
-        {gameMode === "rush" && <span>Your final score is {score}.</span>}
-        {gameMode === "practice" && (
+        {page === "goal" && <span>Your final time is {usedTime} secs.</span>}
+        {page === "rush" && <span>Your final score is {score}.</span>}
+        {page === "practice" && (
           <span>
-            You did {score} katakanas in {usedTime} secs.
+            You did {score} characters in {usedTime} secs.
           </span>
         )}
       </p>
@@ -38,7 +42,7 @@ const GameOverComponent = () => {
         <Button
           onClick={() => {
             setGamePhase("game")
-            setKatakanas(randomKatakana(katakanaList))
+            setCharacters(randomCharacter(charactersList))
             setScore(0)
             setUsedTime(time)
           }}
@@ -46,7 +50,7 @@ const GameOverComponent = () => {
         >
           Restart
         </Button>
-        <Button onClick={() => setGameMode("landing-page")} className="rounded-full text-lg">
+        <Button onClick={() => setPage("landing-page")} className="rounded-full text-lg">
           Go Back
         </Button>
       </div>
