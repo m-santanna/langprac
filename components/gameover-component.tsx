@@ -18,7 +18,9 @@ const GameOverComponent = () => {
   const setKatakanas = useSetAtom(katakanasAtom)
   const [score, setScore] = useAtom(scoreAtom)
   const [usedTime, setUsedTime] = useAtom(usedTimeAtom)
-  const time = gameMode === "rush" ? useAtomValue(timerAtom) : useAtomValue(stopwatchAtom)
+  const timer = useAtomValue(timerAtom)
+  const stopwatch = useAtomValue(stopwatchAtom)
+  const time = gameMode === "rush" ? timer : stopwatch
 
   return (
     <div className="flex flex-col items-center justify-center gap-4 h-full">
