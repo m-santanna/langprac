@@ -19,7 +19,9 @@ const TutorialComponent = () => {
   const setKatakanas = useSetAtom(katakanasAtom)
   const setScore = useSetAtom(scoreAtom)
   const setUsedTime = useSetAtom(usedTimeAtom)
-  const time = gameMode === "rush" ? useAtomValue(timerAtom) : useAtomValue(stopwatchAtom)
+  const timer = useAtomValue(timerAtom)
+  const stopwatch = useAtomValue(stopwatchAtom)
+  const time = gameMode === "rush" ? timer : stopwatch
 
   return (
     <>

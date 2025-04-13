@@ -16,7 +16,7 @@ export default function PracticePage() {
       if (gamePhase === "game") setUsedTime((prevTime) => prevTime + 1)
     }, 1000)
     return () => clearInterval(timer)
-  }, [gamePhase])
+  }, [gamePhase, setUsedTime])
 
   return (
     <section className="relative h-[calc(100vh-80px)] md:h-screen max-w-2xl mx-auto p-4 md:p-8">

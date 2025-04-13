@@ -9,7 +9,7 @@ import RushPage from "@/components/rush"
 import Cheatsheet from "@/components/cheatsheet"
 import Navbar from "@/components/navbar"
 
-const page = () => {
+export default function HomePage() {
   const gameMode = useAtomValue(gameModeAtom)
   return (
     <>
@@ -24,5 +24,3 @@ const page = () => {
     </>
   )
 }
-
-export default page
