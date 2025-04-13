@@ -208,7 +208,7 @@ export const katakanaList = [
   { character: "ン", romaji: "n" },
 ]
 
-export const russianList = [
+export const cyrillicList = [
   // Vowels
   { character: "А", romaji: "a" },
   { character: "Е", romaji: "e" },

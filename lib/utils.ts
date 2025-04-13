@@ -9,3 +9,8 @@ export const randomCharacter = (characterList: { character: string; romaji: stri
   const randomIndex = Math.floor(Math.random() * characterList.length)
   return characterList[randomIndex]
 }
+
+export function capitalize(str: string): string {
+  if (!str) return ""
+  return str[0].toUpperCase() + str.slice(1)
+}

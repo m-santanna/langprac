@@ -1,13 +1,13 @@
 "use client"
 
-import { katakanaList, hiraganaList, russianList } from "@/lib/alphabets"
+import { katakanaList, hiraganaList, cyrillicList } from "@/lib/alphabets"
 import { alphabetAtom } from "@/lib/atoms"
 import { useAtomValue } from "jotai"
 
 export default function Cheatsheet() {
   const alphabet = useAtomValue(alphabetAtom)
   const alphabetList =
-    alphabet === "katakana" ? katakanaList : alphabet === "hiragana" ? hiraganaList : russianList
+    alphabet === "katakana" ? katakanaList : alphabet === "hiragana" ? hiraganaList : cyrillicList
   return (
     <section className="p-4 md:p-8 w-[90vw] md:w-[80vw] h-full mx-auto mt-20">
       <h1 className="text-4xl md:text-6xl text-gradient text-center">Remember your {alphabet}</h1>

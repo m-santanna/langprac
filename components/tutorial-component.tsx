@@ -9,10 +9,12 @@ import {
   timerAtom,
   usedTimeAtom,
   alphabetAtom,
+  scoreGoalAtom,
 } from "@/lib/atoms"
 import { useAtom, useAtomValue, useSetAtom } from "jotai"
-import { randomCharacter } from "@/lib/utils"
-import { katakanaList, hiraganaList, russianList } from "@/lib/alphabets"
+import { randomCharacter, capitalize } from "@/lib/utils"
+import { katakanaList, hiraganaList, cyrillicList } from "@/lib/alphabets"
+import OptionsComponent from "@/components/option"
 
 const TutorialComponent = () => {
   const alphabet = useAtomValue(alphabetAtom)
@@ -20,12 +22,13 @@ const TutorialComponent = () => {
   const setGamePhase = useSetAtom(gamePhaseAtom)
   const setCharacters = useSetAtom(charactersAtom)
   const setScore = useSetAtom(scoreAtom)
+  const scoreGoal = useAtomValue(scoreGoalAtom)
   const setUsedTime = useSetAtom(usedTimeAtom)
   const timer = useAtomValue(timerAtom)
   const stopwatch = useAtomValue(stopwatchAtom)
   const time = page === "rush" ? timer : stopwatch
   const charactersList =
-    alphabet === "katakana" ? katakanaList : alphabet === "hiragana" ? hiraganaList : russianList
+    alphabet === "katakana" ? katakanaList : alphabet === "hiragana" ? hiraganaList : cyrillicList
 
   return (
     <>
@@ -37,7 +40,7 @@ const TutorialComponent = () => {
           <>
             <h1 className="text-gradient text-center text-7xl">Rush Mode</h1>
             <p className="text-2xl text-gradient text-center">
-              One timer. You. Katakanas. Tension! BOOOOOM!!!!!
+              One timer. {timer} seconds. You. {capitalize(alphabet)}s. Tension! BOOOOOM!!!!!
             </p>
           </>
         )}
@@ -53,22 +56,25 @@ const TutorialComponent = () => {
           <>
             <h1 className="text-gradient text-center text-7xl">Goal Mode</h1>
             <p className="text-2xl text-gradient text-center">
-              50 katakanas to go. The less time you take, the better! DUH
+              {scoreGoal} {alphabet}s to go. The less time you take, the better! DUH
             </p>
           </>
         )}
-        <Button
-          size={"lg"}
-          onClick={() => {
-            setGamePhase("game")
-            setCharacters(randomCharacter(charactersList))
-            setScore(0)
-            setUsedTime(time)
-          }}
-          className="rounded-full text-lg mt-2"
-        >
-          Start Game
-        </Button>
+        <div className="flex mt-2 gap-2">
+          <Button
+            size={"lg"}
+            onClick={() => {
+              setGamePhase("game")
+              setCharacters(randomCharacter(charactersList))
+              setScore(0)
+              setUsedTime(time)
+            }}
+            className="rounded-full text-lg"
+          >
+            Start Game
+          </Button>
+          {page !== "practice" && <OptionsComponent />}
+        </div>
       </div>
     </>
   )

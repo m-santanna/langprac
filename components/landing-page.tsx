@@ -1,14 +1,29 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import React from "react"
-import { useAtomValue, useSetAtom } from "jotai"
-import { alphabetAtom, pageAtom, gamePhaseAtom } from "@/lib/atoms"
+import React, { useEffect } from "react"
+import { useAtomValue, useSetAtom, useAtom } from "jotai"
+import { alphabetAtom, pageAtom, gamePhaseAtom, loadedAtom } from "@/lib/atoms"
 
 export default function LandingPage() {
   const setPage = useSetAtom(pageAtom)
   const setGamePhase = useSetAtom(gamePhaseAtom)
   const alphabet = useAtomValue(alphabetAtom)
+  const [loaded, setLoaded] = useAtom(loadedAtom)
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoaded(true)
+    }, 300)
+    return () => clearTimeout(timeout)
+  }, [setLoaded])
+
+  if (!loaded)
+    return (
+      <div className="flex justify-center items-center h-screen w-screen animate-spin text-7xl text-gradient">
+        ツ
+      </div>
+    )
   return (
     <section className="h-[calc(100vh-80px)] md:h-screen w-screen p-4 md:p-8">
       <div className="flex flex-col items-center justify-center gap-4 h-full">

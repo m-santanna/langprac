@@ -11,7 +11,7 @@ import {
   alphabetAtom,
 } from "@/lib/atoms"
 import { randomCharacter } from "@/lib/utils"
-import { katakanaList, hiraganaList, russianList } from "@/lib/alphabets"
+import { katakanaList, hiraganaList, cyrillicList } from "@/lib/alphabets"
 
 const GameComponent = () => {
   const alphabet = useAtomValue(alphabetAtom)
@@ -21,7 +21,7 @@ const GameComponent = () => {
   const [score, setScore] = useAtom(scoreAtom)
   const usedTime = useAtomValue(usedTimeAtom)
   const charactersList =
-    alphabet === "katakana" ? katakanaList : alphabet === "hiragana" ? hiraganaList : russianList
+    alphabet === "katakana" ? katakanaList : alphabet === "hiragana" ? hiraganaList : cyrillicList
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const processedInput = e.target.value.toLowerCase().trim()

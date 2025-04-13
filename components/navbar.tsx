@@ -9,12 +9,12 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { useAtom, useSetAtom } from "jotai"
+import { useAtom } from "jotai"
 import { alphabetAtom, pageAtom } from "@/lib/atoms"
 import { Home } from "lucide-react"
 
 const Navbar = () => {
-  const setPage = useSetAtom(pageAtom)
+  const [page, setPage] = useAtom(pageAtom)
   const [alphabet, setAlphabet] = useAtom(alphabetAtom)
   return (
     <header className="fixed top-5 left-1/2 transform -translate-x-1/2 w-[80vw] md:w-full max-w-2xl z-10">
@@ -39,12 +39,12 @@ const Navbar = () => {
                   Alphabet
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56 rounded-2xl">
+              <DropdownMenuContent className="w-30 rounded-2xl">
                 <DropdownMenuRadioGroup
                   value={alphabet}
                   onValueChange={(value) => {
                     setAlphabet(value)
-                    setPage("landing-page")
+                    if (page !== "cheatsheet") setPage("landing-page")
                   }}
                 >
                   <DropdownMenuRadioItem className="rounded-2xl" value="katakana">
@@ -53,8 +53,8 @@ const Navbar = () => {
                   <DropdownMenuRadioItem className="rounded-2xl" value="hiragana">
                     Hiragana
                   </DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem className="rounded-2xl" value="russian">
-                    Russian
+                  <DropdownMenuRadioItem className="rounded-2xl" value="cyrillic">
+                    Cyrillic
                   </DropdownMenuRadioItem>
                 </DropdownMenuRadioGroup>
               </DropdownMenuContent>

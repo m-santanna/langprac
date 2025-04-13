@@ -11,7 +11,7 @@ import {
 } from "@/lib/atoms"
 import { useAtom, useAtomValue, useSetAtom } from "jotai"
 import { randomCharacter } from "@/lib/utils"
-import { katakanaList, hiraganaList, russianList } from "@/lib/alphabets"
+import { katakanaList, hiraganaList, cyrillicList } from "@/lib/alphabets"
 
 const GameOverComponent = () => {
   const alphabet = useAtomValue(alphabetAtom)
@@ -24,7 +24,7 @@ const GameOverComponent = () => {
   const stopwatch = useAtomValue(stopwatchAtom)
   const time = page === "rush" ? timer : stopwatch
   const charactersList =
-    alphabet === "katakana" ? katakanaList : alphabet === "hiragana" ? hiraganaList : russianList
+    alphabet === "katakana" ? katakanaList : alphabet === "hiragana" ? hiraganaList : cyrillicList
 
   return (
     <div className="flex flex-col items-center justify-center gap-4 h-full">
