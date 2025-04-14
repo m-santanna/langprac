@@ -70,13 +70,23 @@ const GameComponent = () => {
           onChange={handleInputChange}
         />
         {page === "practice" && (
-          <Button
-            size={"lg"}
-            className="rounded-full text-lg mt-2"
-            onClick={() => setGamePhase("gameover")}
-          >
-            Enough!
-          </Button>
+          <div className="flex gap-2">
+            <Button
+              size={"lg"}
+              className="rounded-full text-lg mt-2"
+              onClick={() => setCharacters(randomCharacter(charactersList))}
+            >
+              Skip
+            </Button>
+            <Button
+              size={"lg"}
+              variant={"outline"}
+              className="rounded-full text-lg mt-2"
+              onClick={() => setGamePhase("gameover")}
+            >
+              End
+            </Button>
+          </div>
         )}
       </div>
     </>
