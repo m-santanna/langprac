@@ -46,12 +46,13 @@ const GameOverComponent = () => {
         {page === "rush" && <span>Your final score is {score}.</span>}
         {page === "practice" && (
           <span>
-            You did {score} characters in {usedTime} secs.
+            You did {score} {alphabet}s in {usedTime} secs.
           </span>
         )}
       </p>
-      <div className="flex gap-4 mt-2">
+      <div className="flex gap-2 mt-2">
         <Button
+          size={"lg"}
           onClick={() => {
             setGamePhase("game")
             setCharacter(randomCharacter(charactersList))
@@ -62,7 +63,11 @@ const GameOverComponent = () => {
         >
           Restart
         </Button>
-        <Button onClick={() => setPage("landing-page")} className="rounded-full text-lg">
+        <Button
+          size={"lg"}
+          onClick={() => setPage("landing-page")}
+          className="rounded-full text-lg"
+        >
           Go Back
         </Button>
       </div>

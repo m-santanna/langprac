@@ -3,11 +3,12 @@
 import { Button } from "@/components/ui/button"
 import React, { useEffect } from "react"
 import { useAtomValue, useSetAtom, useAtom } from "jotai"
-import { alphabetAtom, pageAtom, gamePhaseAtom, loadedAtom } from "@/lib/atoms"
+import { alphabetAtom, pageAtom, gamePhaseAtom, loadedAtom, usedTimeAtom } from "@/lib/atoms"
 
 export default function LandingPage() {
   const setPage = useSetAtom(pageAtom)
   const setGamePhase = useSetAtom(gamePhaseAtom)
+  const setUsedTime = useSetAtom(usedTimeAtom)
   const alphabet = useAtomValue(alphabetAtom)
   const [loaded, setLoaded] = useAtom(loadedAtom)
 
@@ -46,6 +47,7 @@ export default function LandingPage() {
             size={"lg"}
             onClick={() => {
               setPage("rush")
+              setUsedTime(30)
               setGamePhase("tutorial")
             }}
             className="rounded-full text-lg"
