@@ -25,15 +25,8 @@ const GameComponent = () => {
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const processedInput = e.target.value.toLowerCase().trim()
-    if (processedInput === characters.romaji) {
-      setScore((prevScore) => prevScore + 1)
-      setCharacters(randomCharacter(charactersList))
-      e.target.value = ""
-    } else if (processedInput === "fu" && characters.romaji === "hu/fu") {
-      setScore((prevScore) => prevScore + 1)
-      setCharacters(randomCharacter(charactersList))
-      e.target.value = ""
-    } else if (processedInput === "hu" && characters.romaji === "hu/fu") {
+
+    if (processedInput === characters.romaji || processedInput === characters.romajiVariant) {
       setScore((prevScore) => prevScore + 1)
       setCharacters(randomCharacter(charactersList))
       e.target.value = ""

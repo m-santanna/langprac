@@ -1,4 +1,4 @@
-export const hiraganaList = [
+export const hiraganaList: { character: string; romaji: string; romajiVariant?: string }[] = [
   // A-row
   { character: "あ", romaji: "a" },
   { character: "い", romaji: "i" },
@@ -37,7 +37,7 @@ export const hiraganaList = [
   // H-row
   { character: "は", romaji: "ha" },
   { character: "ひ", romaji: "hi" },
-  { character: "ふ", romaji: "fu" },
+  { character: "ふ", romaji: "hu", romajiVariant: "fu" },
   { character: "へ", romaji: "he" },
   { character: "ほ", romaji: "ho" },
 
@@ -80,7 +80,6 @@ export const hiraganaList = [
 
   // D-row
   { character: "だ", romaji: "da" },
-  { character: "ぢ", romaji: "ji" },
   { character: "づ", romaji: "zu" },
   { character: "で", romaji: "de" },
   { character: "ど", romaji: "do" },
@@ -103,7 +102,7 @@ export const hiraganaList = [
   { character: "ん", romaji: "n" },
 ]
 
-export const katakanaList = [
+export const katakanaList: { character: string; romaji: string; romajiVariant?: string }[] = [
   // A-row
   { character: "ア", romaji: "a" },
   { character: "イ", romaji: "i" },
@@ -142,7 +141,7 @@ export const katakanaList = [
   // H-row
   { character: "ハ", romaji: "ha" },
   { character: "ヒ", romaji: "hi" },
-  { character: "フ", romaji: "hu/fu" },
+  { character: "フ", romaji: "hu", romajiVariant: "fu" },
   { character: "ヘ", romaji: "he" },
   { character: "ホ", romaji: "ho" },
 
@@ -185,7 +184,6 @@ export const katakanaList = [
 
   // D-row
   { character: "ダ", romaji: "da" },
-  { character: "ヂ", romaji: "ji" },
   { character: "ヅ", romaji: "zu" },
   { character: "デ", romaji: "de" },
   { character: "ド", romaji: "do" },
@@ -208,7 +206,7 @@ export const katakanaList = [
   { character: "ン", romaji: "n" },
 ]
 
-export const cyrillicList = [
+export const cyrillicList: { character: string; romaji: string }[] = [
   // Vowels
   { character: "А", romaji: "a" },
   { character: "Е", romaji: "e" },

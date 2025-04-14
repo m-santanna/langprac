@@ -5,7 +5,9 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export const randomCharacter = (characterList: { character: string; romaji: string }[]) => {
+export const randomCharacter = (
+  characterList: { character: string; romaji: string; romajiVariant?: string }[],
+) => {
   const randomIndex = Math.floor(Math.random() * characterList.length)
   return characterList[randomIndex]
 }
