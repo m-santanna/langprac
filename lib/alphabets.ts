@@ -276,20 +276,20 @@ export const kanjiList: {
     meaning: "earth",
     meaningVariant: "soil",
   },
-  { character: "山", romaji: "san", romajiVariant: "yama", meaning: "mountain" },
+  { character: "山", romaji: "yama", romajiVariant: "san", meaning: "mountain" },
   { character: "川", romaji: "sen", romajiVariant: "kawa", meaning: "river" },
   {
     character: "空",
-    romaji: "kuu",
-    romajiVariant: "sora",
+    romaji: "sora",
+    romajiVariant: "kuu",
     meaning: "sky",
     meaningVariant: "empty",
   },
 
   // People & Body
-  { character: "人", romaji: "jin", romajiVariant: "hito", meaning: "person" },
+  { character: "人", romajiVariant: "jin", romaji: "hito", meaning: "person" },
   { character: "口", romaji: "kou", romajiVariant: "kuchi", meaning: "mouth" },
-  { character: "目", romaji: "moku", romajiVariant: "me", meaning: "eye" },
+  { character: "目", romajiVariant: "moku", romaji: "me", meaning: "eye" },
   { character: "耳", romaji: "ji", romajiVariant: "mimi", meaning: "ear" },
   { character: "手", romaji: "shu", romajiVariant: "te", meaning: "hand" },
   {
@@ -310,7 +310,7 @@ export const kanjiList: {
 
   // Descriptions
   { character: "大", romaji: "dai", romajiVariant: "oo", meaning: "big", meaningVariant: "large" },
-  { character: "小", romaji: "shou", romajiVariant: "chiisai", meaning: "small" },
+  { character: "小", romaji: "shou", romajiVariant: "chii", meaning: "small" },
   {
     character: "長",
     romaji: "chou",
@@ -319,11 +319,11 @@ export const kanjiList: {
     meaningVariant: "leader",
   },
   { character: "新", romaji: "shin", romajiVariant: "atarashii", meaning: "new" },
-  { character: "古", romaji: "ko", romajiVariant: "furui", meaning: "old" },
+  { character: "古", romajiVariant: "ko", romaji: "furui", meaning: "old" },
   {
     character: "高",
-    romaji: "kou",
-    romajiVariant: "takai",
+    romajiVariant: "kou",
+    romaji: "takai",
     meaning: "tall",
     meaningVariant: "expensive",
   },
@@ -352,7 +352,7 @@ export const kanjiList: {
     meaning: "interval",
     meaningVariant: "between",
   },
-  { character: "前", romaji: "zen", romajiVariant: "mae", meaning: "before" },
+  { character: "前", romajiVariant: "zen", romaji: "mae", meaning: "before" },
   {
     character: "後",
     romaji: "go",
@@ -360,19 +360,25 @@ export const kanjiList: {
     meaning: "after",
     meaningVariant: "behind",
   },
-  { character: "今", romaji: "kon", romajiVariant: "ima", meaning: "now" },
+  { character: "今", romajiVariant: "kon", romaji: "ima", meaning: "now" },
 
   // Places
   { character: "校", romaji: "kou", meaning: "school" },
   {
     character: "国",
-    romaji: "koku",
-    romajiVariant: "kuni",
+    romajiVariant: "koku",
+    romaji: "kuni",
     meaning: "country",
     meaningVariant: "nation",
   },
-  { character: "町", romaji: "chou", romajiVariant: "machi", meaning: "town" },
-  { character: "家", romaji: "ka", romajiVariant: "ie", meaning: "house", meaningVariant: "home" },
+  { character: "町", romajiVariant: "chou", romaji: "machi", meaning: "town" },
+  {
+    character: "家",
+    romaji: "uchi",
+    romajiVariant: "ie",
+    meaning: "house",
+    meaningVariant: "home",
+  },
   { character: "駅", romaji: "eki", meaning: "station" },
 
   // Numbers
@@ -391,17 +397,17 @@ export const kanjiList: {
   { character: "万", romaji: "man", meaning: "ten thousand" },
 
   // Actions
-  { character: "行", romaji: "kou", romajiVariant: "iku", meaning: "go" },
+  { character: "行", romajiVariant: "kou", romaji: "iku", meaning: "go" },
   { character: "来", romaji: "rai", romajiVariant: "kuru", meaning: "come" },
-  { character: "見", romaji: "ken", romajiVariant: "miru", meaning: "see", meaningVariant: "look" },
+  { character: "見", romajiVariant: "ken", romaji: "miru", meaning: "see", meaningVariant: "look" },
   { character: "書", romaji: "sho", romajiVariant: "kaku", meaning: "write" },
   { character: "読", romaji: "doku", romajiVariant: "yomu", meaning: "read" },
   {
     character: "話",
-    romaji: "wa",
+    romaji: "hanasu",
     romajiVariant: "hanashi",
-    meaning: "talk",
-    meaningVariant: "story",
+    meaningVariant: "talk",
+    meaning: "story",
   },
   {
     character: "聞",
@@ -410,8 +416,8 @@ export const kanjiList: {
     meaning: "hear",
     meaningVariant: "listen",
   },
-  { character: "食", romaji: "shoku", romajiVariant: "taberu", meaning: "eat" },
-  { character: "飲", romaji: "in", romajiVariant: "nomu", meaning: "drink" },
+  { character: "食", romajiVariant: "shoku", romaji: "taberu", meaning: "eat" },
+  { character: "飲", romajiVariant: "in", romaji: "nomu", meaning: "drink" },
   { character: "買", romaji: "bai", romajiVariant: "kau", meaning: "buy" },
   {
     character: "出",
@@ -423,9 +429,9 @@ export const kanjiList: {
   { character: "入", romaji: "nyuu", romajiVariant: "hairu", meaning: "enter" },
 
   // Family
-  { character: "父", romaji: "fu", romajiVariant: "chichi", meaning: "father" },
-  { character: "母", romaji: "bo", romajiVariant: "haha", meaning: "mother" },
-  { character: "兄", romaji: "kei", romajiVariant: "ani", meaning: "older brother" },
-  { character: "姉", romaji: "shi", romajiVariant: "ane", meaning: "older sister" },
-  { character: "弟", romaji: "tei", romajiVariant: "otouto", meaning: "younger brother" },
+  { character: "父", romajiVariant: "fu", romaji: "chichi", meaning: "father" },
+  { character: "母", romajiVariant: "bo", romaji: "haha", meaning: "mother" },
+  { character: "兄", romajiVariant: "kei", romaji: "ani", meaning: "older brother" },
+  { character: "姉", romajiVariant: "shi", romaji: "ane", meaning: "older sister" },
+  { character: "弟", romajiVariant: "tei", romaji: "otouto", meaning: "younger brother" },
 ]

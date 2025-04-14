@@ -5,7 +5,7 @@ import { useAtom, useAtomValue, useSetAtom } from "jotai"
 import {
   pageAtom,
   gamePhaseAtom,
-  charactersAtom,
+  characterAtom,
   scoreAtom,
   usedTimeAtom,
   alphabetAtom,
@@ -17,7 +17,7 @@ const GameComponent = () => {
   const alphabet = useAtomValue(alphabetAtom)
   const page = useAtomValue(pageAtom)
   const setGamePhase = useSetAtom(gamePhaseAtom)
-  const [characters, setCharacters] = useAtom(charactersAtom)
+  const [character, setCharacter] = useAtom(characterAtom)
   const [score, setScore] = useAtom(scoreAtom)
   const usedTime = useAtomValue(usedTimeAtom)
   const charactersList: {
@@ -39,13 +39,13 @@ const GameComponent = () => {
     const processedInput = e.target.value.toLowerCase().trim()
 
     if (
-      processedInput === characters.romaji ||
-      processedInput === characters.romajiVariant ||
-      processedInput === characters.meaning ||
-      processedInput === characters.meaningVariant
+      processedInput === character.romaji ||
+      processedInput === character.romajiVariant ||
+      processedInput === character.meaning ||
+      processedInput === character.meaningVariant
     ) {
       setScore((prevScore) => prevScore + 1)
-      setCharacters(randomCharacter(charactersList))
+      setCharacter(randomCharacter(charactersList, character))
       e.target.value = ""
     }
   }
@@ -56,7 +56,7 @@ const GameComponent = () => {
         <ArrowLeft />
       </Button>
       <div className="flex flex-col items-center justify-center gap-4 h-full">
-        <h1 className="text-gradient text-center text-7xl">{characters.character}</h1>
+        <h1 className="text-gradient text-center text-7xl">{character.character}</h1>
         {page !== "practice" && (
           <p className="text-2xl text-gradient text-center">
             Score: {score} | Time: {usedTime}
@@ -74,7 +74,7 @@ const GameComponent = () => {
             <Button
               size={"lg"}
               className="rounded-full text-lg mt-2"
-              onClick={() => setCharacters(randomCharacter(charactersList))}
+              onClick={() => setCharacter(randomCharacter(charactersList, character))}
             >
               Skip
             </Button>

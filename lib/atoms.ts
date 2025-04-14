@@ -7,7 +7,7 @@ export const scoreAtom = atom(0)
 export const usedTimeAtom = atom(1000)
 export const stopwatchAtom = atom(0)
 export const loadedAtom = atom(false)
-export const charactersAtom = atom<{
+export const characterAtom = atom<{
   character: string
   romaji: string
   romajiVariant?: string

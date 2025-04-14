@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button"
 import {
   pageAtom,
   gamePhaseAtom,
-  charactersAtom,
+  characterAtom,
   scoreAtom,
   stopwatchAtom,
   timerAtom,
@@ -20,7 +20,7 @@ const TutorialComponent = () => {
   const alphabet = useAtomValue(alphabetAtom)
   const [page, setPage] = useAtom(pageAtom)
   const setGamePhase = useSetAtom(gamePhaseAtom)
-  const setCharacters = useSetAtom(charactersAtom)
+  const setCharacter = useSetAtom(characterAtom)
   const setScore = useSetAtom(scoreAtom)
   const scoreGoal = useAtomValue(scoreGoalAtom)
   const setUsedTime = useSetAtom(usedTimeAtom)
@@ -82,7 +82,7 @@ const TutorialComponent = () => {
             size={"lg"}
             onClick={() => {
               setGamePhase("game")
-              setCharacters(randomCharacter(charactersList))
+              setCharacter(randomCharacter(charactersList))
               setScore(0)
               setUsedTime(time)
             }}
