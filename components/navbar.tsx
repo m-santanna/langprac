@@ -26,7 +26,7 @@ const Navbar = () => {
         >
           <Home className="size-6" />
         </Button>
-        <ul className="flex space-x-4">
+        <ul className="flex gap-1">
           <li>
             <Button onClick={() => setPage("cheatsheet")} className="text-md" variant={"link"}>
               Cheatsheet
@@ -47,14 +47,14 @@ const Navbar = () => {
                     if (page !== "cheatsheet") setPage("landing-page")
                   }}
                 >
-                  <DropdownMenuRadioItem className="rounded-2xl" value="katakana">
-                    Katakana
+                  <DropdownMenuRadioItem className="rounded-2xl" value="kanji">
+                    Kanji
                   </DropdownMenuRadioItem>
                   <DropdownMenuRadioItem className="rounded-2xl" value="hiragana">
                     Hiragana
                   </DropdownMenuRadioItem>
-                  <DropdownMenuRadioItem className="rounded-2xl" value="kanji">
-                    Kanji
+                  <DropdownMenuRadioItem className="rounded-2xl" value="katakana">
+                    Katakana
                   </DropdownMenuRadioItem>
                   <DropdownMenuRadioItem className="rounded-2xl" value="cyrillic">
                     Cyrillic

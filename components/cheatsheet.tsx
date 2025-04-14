@@ -27,7 +27,7 @@ export default function Cheatsheet() {
       <p className="text-lg md:text-xl text-center mt-8">
         The following sheet will help you remember each character and its corresponding romaji.
       </p>
-      <div className="grid grid-cols-3 md:grid-cols-5 gap-4 mt-12">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 mt-12">
         {alphabetList.map((item) => (
           <div key={item.character} className="bg-slate-800 p-4 shadow-md text-center">
             <h2 className="text-2xl">{item.character}</h2>

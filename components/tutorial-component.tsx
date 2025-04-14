@@ -72,6 +72,11 @@ const TutorialComponent = () => {
             </p>
           </>
         )}
+        {alphabet === "kanji" && (
+          <p className="text-lg text-gray-500 text-center">
+            OBS: The kanji meaning also counts as a correct answer.
+          </p>
+        )}
         <div className="flex mt-2 gap-2">
           <Button
             size={"lg"}

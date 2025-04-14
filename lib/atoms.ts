@@ -18,6 +18,6 @@ export const charactersAtom = atom<{
   romaji: "",
 })
 
-export const alphabetAtom = atomWithStorage("alphabet", "katakana")
+export const alphabetAtom = atomWithStorage("alphabet", "kanji")
 export const timerAtom = atomWithStorage("timer", 60)
 export const scoreGoalAtom = atomWithStorage("scoreGoal", 50)
