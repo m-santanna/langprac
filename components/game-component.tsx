@@ -11,7 +11,7 @@ import {
   alphabetAtom,
 } from "@/lib/atoms"
 import { randomCharacter } from "@/lib/utils"
-import { katakanaList, hiraganaList, cyrillicList } from "@/lib/alphabets"
+import { katakanaList, hiraganaList, cyrillicList, kanjiList } from "@/lib/alphabets"
 
 const GameComponent = () => {
   const alphabet = useAtomValue(alphabetAtom)
@@ -20,13 +20,30 @@ const GameComponent = () => {
   const [characters, setCharacters] = useAtom(charactersAtom)
   const [score, setScore] = useAtom(scoreAtom)
   const usedTime = useAtomValue(usedTimeAtom)
-  const charactersList =
-    alphabet === "katakana" ? katakanaList : alphabet === "hiragana" ? hiraganaList : cyrillicList
+  const charactersList: {
+    character: string
+    romaji: string
+    romajiVariant?: string
+    meaning?: string
+    meaningVariant?: string
+  }[] =
+    alphabet === "katakana"
+      ? katakanaList
+      : alphabet === "hiragana"
+      ? hiraganaList
+      : alphabet === "kanji"
+      ? kanjiList
+      : cyrillicList
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const processedInput = e.target.value.toLowerCase().trim()
 
-    if (processedInput === characters.romaji || processedInput === characters.romajiVariant) {
+    if (
+      processedInput === characters.romaji ||
+      processedInput === characters.romajiVariant ||
+      processedInput === characters.meaning ||
+      processedInput === characters.meaningVariant
+    ) {
       setScore((prevScore) => prevScore + 1)
       setCharacters(randomCharacter(charactersList))
       e.target.value = ""

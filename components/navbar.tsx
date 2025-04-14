@@ -53,6 +53,9 @@ const Navbar = () => {
                   <DropdownMenuRadioItem className="rounded-2xl" value="hiragana">
                     Hiragana
                   </DropdownMenuRadioItem>
+                  <DropdownMenuRadioItem className="rounded-2xl" value="kanji">
+                    Kanji
+                  </DropdownMenuRadioItem>
                   <DropdownMenuRadioItem className="rounded-2xl" value="cyrillic">
                     Cyrillic
                   </DropdownMenuRadioItem>

@@ -1,13 +1,26 @@
 "use client"
 
-import { katakanaList, hiraganaList, cyrillicList } from "@/lib/alphabets"
+import { katakanaList, hiraganaList, cyrillicList, kanjiList } from "@/lib/alphabets"
 import { alphabetAtom } from "@/lib/atoms"
 import { useAtomValue } from "jotai"
 
 export default function Cheatsheet() {
   const alphabet = useAtomValue(alphabetAtom)
-  const alphabetList: { character: string; romaji: string; romajiVariant?: string }[] =
-    alphabet === "katakana" ? katakanaList : alphabet === "hiragana" ? hiraganaList : cyrillicList
+  const alphabetList: {
+    character: string
+    romaji: string
+    romajiVariant?: string
+    meaning?: string
+    meaningVariant?: string
+  }[] =
+    alphabet === "katakana"
+      ? katakanaList
+      : alphabet === "hiragana"
+      ? hiraganaList
+      : alphabet === "kanji"
+      ? kanjiList
+      : cyrillicList
+
   return (
     <section className="p-4 md:p-8 w-[90vw] md:w-[80vw] h-full mx-auto mt-20">
       <h1 className="text-4xl md:text-6xl text-gradient text-center">Remember your {alphabet}</h1>
@@ -24,6 +37,13 @@ export default function Cheatsheet() {
               </p>
             ) : (
               <p className="text-lg">{item.romaji}</p>
+            )}
+            {item.meaningVariant ? (
+              <p className="text-sm text-gray-400">
+                {item.meaning} / {item.meaningVariant}
+              </p>
+            ) : (
+              <p className="text-sm text-gray-400">{item.meaning}</p>
             )}
           </div>
         ))}
