@@ -9,8 +9,8 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: "Practice Katakana",
-  description: "Practice and improve your katakana knowledge with this app.",
+  title: "LangPrac",
+  description: "Practice and improve new alphabets that you are not fully familiar with.",
 }
 
 export default function RootLayout({

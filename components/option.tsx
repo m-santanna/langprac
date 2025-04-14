@@ -28,11 +28,11 @@ const OptionsComponent = () => {
             <DropdownMenuLabel className="text-center">Timer</DropdownMenuLabel>
             <Input
               type="number"
-              placeholder="Min 10sec"
+              placeholder="Min 10 secs"
               className="w-full rounded-2xl appearance-none [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none [-moz-appearance:textfield]"
               onChange={(e) => {
                 const value = parseInt(e.target.value)
-                if (value >= 20) {
+                if (value >= 10) {
                   setTimer(value)
                 }
               }}
