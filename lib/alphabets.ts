@@ -387,7 +387,6 @@ export const kanjiList: {
   { character: "嬉しい", romaji: "ureshii", meaning: "happy" },
   { character: "悲しい", romaji: "kanashii", meaning: "sad" },
   { character: "怒る", romaji: "okoru", meaning: "angry" },
-  { character: "楽しい", romaji: "tanoshii", meaning: "fun" },
   { character: "怖い", romaji: "kowai", meaning: "scary" },
   { character: "寂しい", romaji: "sabishii", meaning: "lonely" },
   { character: "恥ずかしい", romaji: "hazukashii", meaning: "embarrassed" },

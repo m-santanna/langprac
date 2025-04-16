@@ -46,7 +46,7 @@ const GameOverComponent = () => {
         {page === "rush" && <span>Your final score is {score}.</span>}
         {page === "practice" && (
           <span>
-            You did {score} {alphabet}s in {usedTime} secs.
+            You typed {score} {alphabet}s in {usedTime} secs.
           </span>
         )}
       </p>

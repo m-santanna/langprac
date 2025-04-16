@@ -37,6 +37,15 @@ const GameComponent = () => {
       ? kanjiList
       : cyrillicList
 
+  document.onkeydown = (e) => {
+    if (e.key === "Enter" && page === "practice") {
+      if (showAnswer) {
+        setCharacter(randomCharacter(charactersList, character))
+      }
+      setShowAnswer(!showAnswer)
+    }
+  }
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const processedInput = e.target.value.toLowerCase().trim()
 
