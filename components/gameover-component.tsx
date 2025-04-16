@@ -39,7 +39,7 @@ const GameOverComponent = () => {
       : cyrillicList
 
   return (
-    <div className="flex flex-col items-center justify-center gap-4 h-full">
+    <div className="flex flex-col items-center justify-center gap-4 h-full animate-in fade-in zoom-in duration-300">
       <h1 className="text-gradient text-center text-7xl">Game Over</h1>
       <p className="text-2xl text-gradient text-center">
         {page === "goal" && <span>Your final time is {usedTime} secs.</span>}

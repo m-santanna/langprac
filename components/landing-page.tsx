@@ -1,16 +1,16 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import React, { useEffect } from "react"
-import { useAtomValue, useSetAtom, useAtom } from "jotai"
-import { alphabetAtom, pageAtom, gamePhaseAtom, loadedAtom, usedTimeAtom } from "@/lib/atoms"
+import React, { useEffect, useState } from "react"
+import { useAtomValue, useSetAtom } from "jotai"
+import { alphabetAtom, pageAtom, gamePhaseAtom, usedTimeAtom } from "@/lib/atoms"
 
 export default function LandingPage() {
   const setPage = useSetAtom(pageAtom)
   const setGamePhase = useSetAtom(gamePhaseAtom)
   const setUsedTime = useSetAtom(usedTimeAtom)
   const alphabet = useAtomValue(alphabetAtom)
-  const [loaded, setLoaded] = useAtom(loadedAtom)
+  const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -26,7 +26,7 @@ export default function LandingPage() {
       </div>
     )
   return (
-    <section className="h-[calc(100vh-80px)] md:h-screen w-screen p-4 md:p-8">
+    <section className="h-[calc(100vh-80px)] md:h-screen w-screen p-4 md:p-8 animate-in fade-in zoom-in duration-300">
       <div className="flex flex-col items-center justify-center gap-4 h-full">
         <h1 className="text-7xl text-gradient">Welcome!</h1>
         <p className="text-gradient text-2xl text-center">

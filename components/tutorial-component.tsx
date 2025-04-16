@@ -47,7 +47,7 @@ const TutorialComponent = () => {
       <Button onClick={() => setPage("landing-page")} className="rounded-full absolute top-24">
         <ArrowLeft />
       </Button>
-      <div className="flex flex-col items-center justify-center gap-4 h-full">
+      <div className="flex flex-col items-center justify-center gap-4 h-full animate-in fade-in zoom-in duration-300">
         {page === "rush" && (
           <>
             <h1 className="text-gradient text-center text-7xl">Rush Mode</h1>
