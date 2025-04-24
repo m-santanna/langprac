@@ -375,13 +375,13 @@ export const kanjiList: {
   { character: "家族", romaji: "kazoku", meaning: "family" },
 
   // 📅 Days of the Week
-  { character: "月曜日", romaji: "getsuyoubi", meaning: "Monday" },
-  { character: "火曜日", romaji: "kayoubi", meaning: "Tuesday" },
-  { character: "水曜日", romaji: "suiyoubi", meaning: "Wednesday" },
-  { character: "木曜日", romaji: "mokuyoubi", meaning: "Thursday" },
-  { character: "金曜日", romaji: "kinyoubi", meaning: "Friday" },
-  { character: "土曜日", romaji: "doyoubi", meaning: "Saturday" },
-  { character: "日曜日", romaji: "nichiyoubi", meaning: "Sunday" },
+  { character: "月曜日", romaji: "getsuyoubi", meaning: "monday" },
+  { character: "火曜日", romaji: "kayoubi", meaning: "tuesday" },
+  { character: "水曜日", romaji: "suiyoubi", meaning: "wednesday" },
+  { character: "木曜日", romaji: "mokuyoubi", meaning: "thursday" },
+  { character: "金曜日", romaji: "kinyoubi", meaning: "friday" },
+  { character: "土曜日", romaji: "doyoubi", meaning: "saturday" },
+  { character: "日曜日", romaji: "nichiyoubi", meaning: "sunday" },
 
   // 😄 Emotions
   { character: "嬉しい", romaji: "ureshii", meaning: "happy" },
