@@ -1,27 +1,18 @@
 "use client"
 
-import { katakanaList, hiraganaList, cyrillicList, kanjiList } from "@/lib/alphabets"
 import { alphabetAtom } from "@/lib/atoms"
 import { useAtomValue } from "jotai"
-import { capitalize } from "@/lib/utils"
+import { capitalize, Character } from "@/lib/utils"
+import { useHasMounted } from "@/hooks/use-has-mounted"
+import LoadingPage from "@/app/loading"
+import { getCharacterList } from "@/lib/alphabet-map"
 
 export default function Cheatsheet() {
+  const hasMounted = useHasMounted()
   const alphabet = useAtomValue(alphabetAtom)
-  const alphabetList: {
-    character: string
-    romaji: string
-    romajiVariant?: string
-    meaning?: string
-    meaningVariant?: string
-  }[] =
-    alphabet === "katakana"
-      ? katakanaList
-      : alphabet === "hiragana"
-      ? hiraganaList
-      : alphabet === "kanji"
-      ? kanjiList
-      : cyrillicList
+  const alphabetList: Character[] = getCharacterList(alphabet)
 
+  if (!hasMounted) return <LoadingPage />
   return (
     <section className="p-4 md:p-8 w-[90vw] md:w-[80vw] h-full mx-auto mt-24 md:mt-20">
       <h1 className="text-6xl text-gradient text-center animate-in fade-in zoom-in duration-300">

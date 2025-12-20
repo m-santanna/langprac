@@ -3,9 +3,9 @@
 import { useEffect } from "react"
 import { useAtomValue, useSetAtom } from "jotai"
 import { gamePhaseAtom, usedTimeAtom } from "@/lib/atoms"
-import TutorialComponent from "@/components/tutorial-component"
-import GameComponent from "@/components/game-component"
-import GameOverComponent from "@/components/gameover-component"
+import TutorialComponent from "@/components/gamephase/tutorial-component"
+import GameComponent from "@/components/gamephase/game-component"
+import GameOverComponent from "@/components/gamephase/gameover-component"
 
 export default function PracticePage() {
   const gamePhase = useAtomValue(gamePhaseAtom)

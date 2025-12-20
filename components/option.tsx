@@ -3,7 +3,7 @@ import React from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { useAtom, useAtomValue } from "jotai"
-import { scoreGoalAtom, timerAtom, pageAtom } from "@/lib/atoms"
+import { gameModeAtom, targetScoreAtom, timerAtom } from "@/lib/atoms"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,18 +12,16 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 const OptionsComponent = () => {
-  const [scoreGoal, setScoreGoal] = useAtom(scoreGoalAtom)
+  const gamemode = useAtomValue(gameModeAtom)
+  const [targetScore, setTargetScore] = useAtom(targetScoreAtom)
   const [timer, setTimer] = useAtom(timerAtom)
-  const page = useAtomValue(pageAtom)
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button size={"lg"} variant={"outline"} className="rounded-full text-lg">
-          Options
-        </Button>
+        <Button variant={"outline"}>Options</Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-30 rounded-2xl">
-        {page === "rush" && (
+        {gamemode === "rush" && (
           <>
             <DropdownMenuLabel className="text-center">Timer</DropdownMenuLabel>
             <Input
@@ -43,9 +41,9 @@ const OptionsComponent = () => {
             />
           </>
         )}
-        {page === "goal" && (
+        {gamemode === "target-score" && (
           <>
-            <DropdownMenuLabel className="text-center">Score Goal</DropdownMenuLabel>
+            <DropdownMenuLabel className="text-center">Target Score</DropdownMenuLabel>
             <Input
               type="number"
               placeholder="Min 15"
@@ -53,10 +51,10 @@ const OptionsComponent = () => {
               onChange={(e) => {
                 const value = parseInt(e.target.value)
                 if (value >= 15) {
-                  setScoreGoal(value)
+                  setTargetScore(value)
                 }
               }}
-              defaultValue={scoreGoal}
+              defaultValue={targetScore}
               min={15}
               max={100}
               step={5}

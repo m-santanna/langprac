@@ -1,4 +1,6 @@
-export const hiraganaList: { character: string; romaji: string; romajiVariant?: string }[] = [
+import { Character } from "./utils"
+
+export const hiraganaList: Character[] = [
   // A-row
   { character: "あ", romaji: "a" },
   { character: "い", romaji: "i" },
@@ -48,17 +50,17 @@ export const hiraganaList: { character: string; romaji: string; romajiVariant?: 
   { character: "め", romaji: "me" },
   { character: "も", romaji: "mo" },
 
-  // Y-row
-  { character: "や", romaji: "ya" },
-  { character: "ゆ", romaji: "yu" },
-  { character: "よ", romaji: "yo" },
-
   // R-row
   { character: "ら", romaji: "ra" },
   { character: "り", romaji: "ri" },
   { character: "る", romaji: "ru" },
   { character: "れ", romaji: "re" },
   { character: "ろ", romaji: "ro" },
+
+  // Y-row
+  { character: "や", romaji: "ya" },
+  { character: "ゆ", romaji: "yu" },
+  { character: "よ", romaji: "yo" },
 
   // W-row
   { character: "わ", romaji: "wa" },
@@ -78,12 +80,6 @@ export const hiraganaList: { character: string; romaji: string; romajiVariant?: 
   { character: "ぜ", romaji: "ze" },
   { character: "ぞ", romaji: "zo" },
 
-  // D-row
-  { character: "だ", romaji: "da" },
-  { character: "づ", romaji: "zu" },
-  { character: "で", romaji: "de" },
-  { character: "ど", romaji: "do" },
-
   // B-row
   { character: "ば", romaji: "ba" },
   { character: "び", romaji: "bi" },
@@ -98,11 +94,17 @@ export const hiraganaList: { character: string; romaji: string; romajiVariant?: 
   { character: "ぺ", romaji: "pe" },
   { character: "ぽ", romaji: "po" },
 
+  // D-row
+  { character: "だ", romaji: "da" },
+  { character: "づ", romaji: "zu" },
+  { character: "で", romaji: "de" },
+  { character: "ど", romaji: "do" },
+
   // N
   { character: "ん", romaji: "n" },
 ]
 
-export const katakanaList: { character: string; romaji: string; romajiVariant?: string }[] = [
+export const katakanaList: Character[] = [
   // A-row
   { character: "ア", romaji: "a" },
   { character: "イ", romaji: "i" },
@@ -182,12 +184,6 @@ export const katakanaList: { character: string; romaji: string; romajiVariant?: 
   { character: "ゼ", romaji: "ze" },
   { character: "ゾ", romaji: "zo" },
 
-  // D-row
-  { character: "ダ", romaji: "da" },
-  { character: "ヅ", romaji: "zu" },
-  { character: "デ", romaji: "de" },
-  { character: "ド", romaji: "do" },
-
   // B-row
   { character: "バ", romaji: "ba" },
   { character: "ビ", romaji: "bi" },
@@ -202,11 +198,17 @@ export const katakanaList: { character: string; romaji: string; romajiVariant?: 
   { character: "ペ", romaji: "pe" },
   { character: "ポ", romaji: "po" },
 
+  // D-row
+  { character: "ダ", romaji: "da" },
+  { character: "ヅ", romaji: "zu" },
+  { character: "デ", romaji: "de" },
+  { character: "ド", romaji: "do" },
+
   // N-row
   { character: "ン", romaji: "n" },
 ]
 
-export const cyrillicList: { character: string; romaji: string }[] = [
+export const cyrillicList: Character[] = [
   // Vowels
   { character: "А", romaji: "a" },
   { character: "Е", romaji: "e" },
@@ -243,13 +245,7 @@ export const cyrillicList: { character: string; romaji: string }[] = [
   { character: "Щ", romaji: "shch" },
 ]
 
-export const kanjiList: {
-  character: string
-  romaji: string
-  romajiVariant?: string
-  meaning: string
-  meaningVariant?: string
-}[] = [
+export const kanjiList: Character[] = [
   // 🏠 Everyday Objects
   { character: "本", romaji: "hon", meaning: "book" },
   { character: "車", romaji: "kuruma", meaning: "car" },

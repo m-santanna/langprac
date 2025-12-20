@@ -1,7 +1,7 @@
 import { atom } from "jotai"
 import { atomWithStorage } from "jotai/utils"
 
-export const pageAtom = atom("landing-page")
+export const gameModeAtom = atom("landing-page")
 export const gamePhaseAtom = atom("tutorial")
 export const scoreAtom = atom(0)
 export const usedTimeAtom = atom(1000)
@@ -19,4 +19,4 @@ export const characterAtom = atom<{
 
 export const alphabetAtom = atomWithStorage("alphabet", "kanji")
 export const timerAtom = atomWithStorage("timer", 60)
-export const scoreGoalAtom = atomWithStorage("scoreGoal", 50)
+export const targetScoreAtom = atomWithStorage("target-score", 50)

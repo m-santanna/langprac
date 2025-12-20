@@ -1,20 +1,18 @@
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
 
-type Character = {
+export type Character = {
   character: string
   romaji: string
   romajiVariant?: string
   meaning?: string
   meaningVariant?: string
 }
-type CharacterList = Character[]
-
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export const randomCharacter = (characterList: CharacterList, character?: Character): Character => {
+export const randomCharacter = (characterList: Character[], character?: Character): Character => {
   const index = Math.floor(Math.random() * characterList.length)
   const picked = characterList[index]
   if (character && character.character === picked.character) {
