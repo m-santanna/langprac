@@ -24,7 +24,9 @@ const TutorialComponent = () => {
   const setScore = useSetAtom(scoreAtom)
   const targetScore = useAtomValue(targetScoreAtom)
   const setUsedTime = useSetAtom(usedTimeAtom)
-  const time = gamemode === "rush" ? useAtomValue(timerAtom) : useAtomValue(stopwatchAtom)
+  const timer = useAtomValue(timerAtom)
+  const stopwatch = useAtomValue(stopwatchAtom)
+  const time = gamemode === "rush" ? timer : stopwatch
   const charactersList: Character[] = getCharacterList(alphabet)
 
   return (
