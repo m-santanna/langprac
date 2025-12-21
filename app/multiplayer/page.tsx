@@ -13,9 +13,6 @@ export default function MultiplayerPage() {
           <Link href="/singleplayer" className="rounded-full">
             <Button>Solo</Button>
           </Link>
-          <Link href="/multiplayer" className="rounded-full">
-            <Button>Lobby</Button>
-          </Link>
         </div>
       </div>
     </section>
