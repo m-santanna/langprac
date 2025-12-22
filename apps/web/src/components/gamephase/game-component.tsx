@@ -13,8 +13,9 @@ import {
   alphabetAtom,
   gameModeAtom,
 } from "@/lib/atoms"
-import { Character, randomCharacter } from "@/lib/utils"
+import { randomCharacter } from "@/lib/utils"
 import { getCharacterList } from "@/lib/alphabet-map"
+import { Character } from "@repo/types/character"
 
 const GameComponent = () => {
   const gamemode = useAtomValue(gameModeAtom)

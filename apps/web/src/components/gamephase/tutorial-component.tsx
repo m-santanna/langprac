@@ -14,9 +14,10 @@ import {
   gameModeAtom,
 } from "@/lib/atoms"
 import { useAtom, useAtomValue, useSetAtom } from "jotai"
-import { randomCharacter, capitalize, Character } from "@/lib/utils"
+import { randomCharacter, capitalize } from "@/lib/utils"
 import OptionsComponent from "@/components/option"
 import { getCharacterList } from "@/lib/alphabet-map"
+import { Character } from "@repo/types/character"
 
 const TutorialComponent = () => {
   const [gamemode, setGameMode] = useAtom(gameModeAtom)

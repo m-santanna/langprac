@@ -12,8 +12,9 @@ import {
   gameModeAtom,
 } from "@/lib/atoms"
 import { useAtom, useAtomValue, useSetAtom } from "jotai"
-import { Character, randomCharacter } from "@/lib/utils"
+import { randomCharacter } from "@/lib/utils"
 import { getCharacterList } from "@/lib/alphabet-map"
+import { Character } from "@repo/types/character"
 
 const GameOverComponent = () => {
   const [gamemode, setGameMode] = useAtom(gameModeAtom)

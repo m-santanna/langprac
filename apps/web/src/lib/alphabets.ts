@@ -1,4 +1,4 @@
-import { Character } from "./utils"
+import { Character } from "@repo/types/character"
 
 export const hiraganaList: Character[] = [
   // A-row

@@ -12,10 +12,11 @@ export default function PracticePage() {
   const setUsedTime = useSetAtom(usedTimeAtom)
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      if (gamePhase === "game") setUsedTime((prevTime) => prevTime + 1)
-    }, 1000)
-    return () => clearInterval(timer)
+    let timer: NodeJS.Timeout
+    if (gamePhase === "game") {
+      timer = setInterval(() => setUsedTime((prevTime) => prevTime + 1), 1000)
+      return () => clearInterval(timer)
+    }
   }, [gamePhase, setUsedTime])
 
   return (

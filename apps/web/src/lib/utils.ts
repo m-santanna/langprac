@@ -1,10 +1,4 @@
-export type Character = {
-  character: string
-  romaji: string
-  romajiVariant?: string
-  meaning?: string
-  meaningVariant?: string
-}
+import { Character } from "@repo/types/character"
 
 export const randomCharacter = (characterList: Character[], character?: Character): Character => {
   const index = Math.floor(Math.random() * characterList.length)

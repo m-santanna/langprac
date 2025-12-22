@@ -15,10 +15,11 @@ export default function TargetScorePage() {
 
   useEffect(() => {
     if (score == targetScore) setGamePhase("gameover")
-    const timer = setInterval(() => {
-      if (gamePhase === "game") setUsedTime((prevTime) => prevTime + 1)
-    }, 1000)
-    return () => clearInterval(timer)
+    let timer: NodeJS.Timeout
+    if (gamePhase === "game") {
+      timer = setInterval(() => setUsedTime((prevTime) => prevTime + 1), 1000)
+      return () => clearInterval(timer)
+    }
   }, [gamePhase, score, targetScore, setGamePhase, setUsedTime])
 
   return (

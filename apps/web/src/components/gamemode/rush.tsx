@@ -12,11 +12,12 @@ const RushPage = () => {
   const [usedTime, setUsedTime] = useAtom(usedTimeAtom)
 
   useEffect(() => {
-    if (usedTime <= 0) setGamePhase("gameover")
-    const timer = setInterval(() => {
-      if (gamePhase === "game") setUsedTime((prevTime) => prevTime - 1)
-    }, 1000)
-    return () => clearInterval(timer)
+    if (usedTime <= 0 && gamePhase === "game") setGamePhase("gameover")
+    let timer: NodeJS.Timeout
+    if (gamePhase === "game") {
+      timer = setInterval(() => setUsedTime((prevTime) => prevTime - 1), 1000)
+      return () => clearInterval(timer)
+    }
   }, [usedTime, gamePhase, setGamePhase, setUsedTime])
 
   return (

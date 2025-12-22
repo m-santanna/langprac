@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@repo/ui": "*",
+    "@repo/types": "*",
     "jotai": "^2.12.2",
     "lucide-react": "^0.487.0",
     "next": "^15.5.9",

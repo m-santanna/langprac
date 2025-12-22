@@ -14,6 +14,7 @@
       "name": "web",
       "version": "0.0.1",
       "dependencies": {
+        "@repo/types": "*",
         "@repo/ui": "*",
         "jotai": "^2.12.2",
         "lucide-react": "^0.487.0",
@@ -50,6 +51,19 @@
         "globals": "^16.5.0",
         "typescript": "^5.9.2",
         "typescript-eslint": "^8.49.0",
+      },
+    },
+    "packages/types": {
+      "name": "@repo/types",
+      "version": "0.0.0",
+      "devDependencies": {
+        "@repo/eslint-config": "*",
+        "@repo/typescript-config": "*",
+        "@types/node": "^20.19.9",
+        "@types/react": "^19.2.3",
+        "@types/react-dom": "^19.2.3",
+        "eslint": "^9.32.0",
+        "typescript": "^5.9.2",
       },
     },
     "packages/typescript-config": {
@@ -268,6 +282,8 @@
     "@radix-ui/rect": ["@radix-ui/rect@1.1.1", "", {}, "sha512-HPwpGIzkl28mWyZqG52jiqDJ12waP11Pa1lGoiyUkIEuMLBP0oeK/C89esbXrxsky5we7dfd8U58nm0SgAWpVw=="],
 
     "@repo/eslint-config": ["@repo/eslint-config@workspace:packages/eslint-config"],
+
+    "@repo/types": ["@repo/types@workspace:packages/types"],
 
     "@repo/typescript-config": ["@repo/typescript-config@workspace:packages/typescript-config"],
 

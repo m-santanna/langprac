@@ -1,3 +1,4 @@
+import { Character } from "@repo/types/character"
 import { atom } from "jotai"
 import { atomWithStorage } from "jotai/utils"
 
@@ -6,13 +7,7 @@ export const gamePhaseAtom = atom("tutorial")
 export const scoreAtom = atom(0)
 export const usedTimeAtom = atom(1000)
 export const stopwatchAtom = atom(0)
-export const characterAtom = atom<{
-  character: string
-  romaji: string
-  romajiVariant?: string
-  meaning?: string
-  meaningVariant?: string
-}>({
+export const characterAtom = atom<Character>({
   character: "",
   romaji: "",
 })

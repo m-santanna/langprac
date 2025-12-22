@@ -1,5 +1,5 @@
+import { Character } from "@repo/types/character"
 import { cyrillicList, hiraganaList, kanjiList, katakanaList } from "./alphabets"
-import { Character } from "./utils"
 
 export const alphabetMap: Map<string, Character[]> = new Map()
 alphabetMap.set("hiragana", hiraganaList)
