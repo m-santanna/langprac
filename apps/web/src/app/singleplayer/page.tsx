@@ -19,7 +19,7 @@ export default function HomePage() {
   useEffect(() => {
     setGamePhase("tutorial")
     setGameMode("landing-page")
-  }, [])
+  }, [setGamePhase, setGameMode])
 
   if (!hasMounted) return <LoadingPage />
   return (

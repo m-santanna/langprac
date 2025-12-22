@@ -2,10 +2,11 @@
 
 import { alphabetAtom } from "@/lib/atoms"
 import { useAtomValue } from "jotai"
-import { capitalize, Character } from "@/lib/utils"
+import { capitalize, } from "@/lib/utils"
 import { useHasMounted } from "@repo/ui/hooks/use-has-mounted"
 import LoadingPage from "@/app/loading"
 import { getCharacterList } from "@/lib/alphabet-map"
+import { Character } from "@repo/types/character"
 
 export default function Cheatsheet() {
   const hasMounted = useHasMounted()
