@@ -3,7 +3,7 @@ import { z } from "zod"
 export const characterSchema = z.object({
   character: z.string(),
   romaji: z.string(),
-  romajiVaraint: z.string().optional(),
+  romajiVariant: z.string().optional(),
   meaning: z.string().optional(),
   meaningVariant: z.string().optional(),
 })
