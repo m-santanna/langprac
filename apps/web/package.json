@@ -10,13 +10,15 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@repo/ui": "*",
     "@repo/types": "*",
+    "@repo/ui": "*",
+    "@tanstack/react-query": "^5.90.14",
     "jotai": "^2.12.2",
     "lucide-react": "^0.487.0",
     "next": "^15.5.9",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
+    "sonner": "^2.0.7",
     "tw-animate-css": "^1.2.5"
   },
   "devDependencies": {

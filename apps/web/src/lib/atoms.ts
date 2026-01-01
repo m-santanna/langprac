@@ -12,6 +12,7 @@ export const characterAtom = atom<Character>({
   romaji: "",
 })
 
+export const usernameAtom = atomWithStorage("username", "")
 export const alphabetAtom = atomWithStorage("alphabet", "kanji")
 export const timerAtom = atomWithStorage("timer", 60)
 export const targetScoreAtom = atomWithStorage("target-score", 50)

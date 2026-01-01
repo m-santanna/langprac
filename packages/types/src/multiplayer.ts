@@ -1,5 +1,5 @@
 import z from "zod"
-import { Character, characterSchema } from "./character.js"
+import { characterSchema } from "./character.js"
 
 export const alphabetSchema = z.literal(["kanji", "katakana", "hiragana", "cyrillic"])
 export type Alphabet = z.infer<typeof alphabetSchema>
